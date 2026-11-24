@@ -1,0 +1,274 @@
+{
+  "title": "Plano de estudos – Engenharia de Dados em 30 dias",
+  "start_date": null,
+  "hours_per_day": 3,
+  "issue_label": "plano-estudo",
+  "phases": [
+    {"id": 1, "name": "Base", "days": [1, 7], "result": "Vocabulário técnico, SQL, modelagem e fundamentos de Python"},
+    {"id": 2, "name": "Construção", "days": [8, 14], "result": "Código testado, processamento distribuído e serviços de nuvem"},
+    {"id": 3, "name": "Plataforma moderna", "days": [15, 21], "result": "Lakehouse e pipelines batch e streaming"},
+    {"id": 4, "name": "Produção", "days": [22, 28], "result": "Entrega automatizada, segura, governada e observável"},
+    {"id": 5, "name": "Consolidação", "days": [29, 30], "result": "Projeto final documentado e apresentação ensaiada"}
+  ],
+  "days": [
+    {
+      "day": 1, "phase": 1, "title": "Arquiteturas de dados",
+      "study": ["Data Warehouse, Data Lake e Lakehouse: objetivos e limites", "Arquitetura Medallion (Bronze, Silver, Gold)", "Montar o ambiente de laboratório"],
+      "evidence": "Tabela comparativa de uma página e ambiente funcionando",
+      "project": null,
+      "links": [
+        {"title": "Engenharia de dados com Azure Databricks", "url": "https://learn.microsoft.com/pt-br/azure/databricks/data-engineering/"},
+        {"title": "Databricks Free Edition", "url": "https://www.databricks.com/learn/free-edition"}
+      ]
+    },
+    {
+      "day": 2, "phase": 1, "title": "Formatos de tabela abertos",
+      "study": ["Delta Lake: transações ACID, schema e time travel", "Apache Iceberg: snapshots e evolução de schema"],
+      "evidence": "Notebook criando, alterando e consultando uma tabela Delta",
+      "project": null,
+      "links": [
+        {"title": "Delta Lake – documentação", "url": "https://docs.delta.io/latest/index.html"},
+        {"title": "Apache Iceberg – documentação", "url": "https://iceberg.apache.org/docs/latest/"}
+      ]
+    },
+    {
+      "day": 3, "phase": 1, "title": "SQL a fundo",
+      "study": ["Normalização e anomalias de atualização", "Transações, ACID e níveis de isolamento", "Planos de execução e índices"],
+      "evidence": "Query lenta → EXPLAIN ANALYZE → índice → comparação antes/depois",
+      "project": null,
+      "links": [
+        {"title": "PostgreSQL – documentação", "url": "https://www.postgresql.org/docs/current/"},
+        {"title": "SQLBolt", "url": "https://sqlbolt.com/"}
+      ]
+    },
+    {
+      "day": 4, "phase": 1, "title": "Modelagem analítica",
+      "study": ["Esquema estrela e floco de neve", "Slowly Changing Dimensions tipo 1 e 2", "Data Vault: hubs, links, satellites e quando usar"],
+      "evidence": "Modelo estrela desenhado e SCD2 implementado em SQL",
+      "project": null,
+      "links": [
+        {"title": "Kimball – técnicas de modelagem dimensional", "url": "https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/"}
+      ]
+    },
+    {
+      "day": 5, "phase": 1, "title": "Armazenamento e distribuição",
+      "study": ["Estratégias de particionamento", "NoSQL: chave-valor, documento, colunar e grafo", "Sharding, replicação e consistência", "Escolher storage por volume, velocidade, custo e governança"],
+      "evidence": "Nota curta: qual storage para qual caso, com 3 cenários",
+      "project": null,
+      "links": [
+        {"title": "Azure Cosmos DB", "url": "https://learn.microsoft.com/pt-br/azure/cosmos-db/"},
+        {"title": "Azure Architecture Center", "url": "https://learn.microsoft.com/azure/architecture/"}
+      ]
+    },
+    {
+      "day": 6, "phase": 1, "title": "Python para pipelines",
+      "study": ["Componentes reutilizáveis em Python", "Ambientes virtuais e dependências", "Estrutura de projeto em camadas", "Logging, exceções e configuração", "Git e estratégia de branches"],
+      "evidence": "Esqueleto do repositório do projeto com pyproject, logging e .env fora do Git",
+      "project": null,
+      "links": [
+        {"title": "Tutorial do Python (pt-BR)", "url": "https://docs.python.org/pt-br/3/tutorial/"},
+        {"title": "GitHub Skills", "url": "https://skills.github.com/"}
+      ]
+    },
+    {"day": 7, "phase": 1, "rest": true, "title": "Descanso", "study": [], "evidence": null, "project": null, "links": []},
+    {
+      "day": 8, "phase": 2, "title": "Testes e código limpo",
+      "study": ["Testes unitários com pytest e mocks", "Testes de integração e regressão", "Clean Code e SOLID"],
+      "evidence": "Suite de testes rodando localmente",
+      "project": "Escolher a fonte de dados pública e escrever o contrato (schema, frequência, regras)",
+      "links": [
+        {"title": "pytest – documentação", "url": "https://docs.pytest.org/en/stable/"}
+      ]
+    },
+    {
+      "day": 9, "phase": 2, "title": "Entrega de software",
+      "study": ["CI/CD com GitHub Actions", "Docker e conteinerização", "APIs REST com FastAPI", "Arquitetura modular/hexagonal aplicada a dados"],
+      "evidence": "Imagem Docker do projeto gerada",
+      "project": "Pipeline de CI rodando lint e pytest a cada push",
+      "links": [
+        {"title": "GitHub Actions", "url": "https://docs.github.com/actions"},
+        {"title": "Docker – Get Started", "url": "https://docs.docker.com/get-started/"},
+        {"title": "FastAPI – tutorial", "url": "https://fastapi.tiangolo.com/tutorial/"}
+      ]
+    },
+    {
+      "day": 10, "phase": 2, "title": "Spark por dentro",
+      "study": ["Driver, executors, jobs, stages e tasks", "Partições e lazy evaluation", "DAG e lineage", "RDD e DStreams como legado", "DataFrame, Spark SQL e PySpark"],
+      "evidence": "Explicar com um desenho como uma ação Spark é executada",
+      "project": "Ingestão batch da fonte para a camada Bronze",
+      "links": [
+        {"title": "Apache Spark – documentação", "url": "https://spark.apache.org/docs/latest/"}
+      ]
+    },
+    {
+      "day": 11, "phase": 2, "title": "Otimização no Spark",
+      "study": ["Catalyst e leitura de planos com explain", "Adaptive Query Execution", "Predicate pushdown e partition pruning"],
+      "evidence": "Plano físico de uma query comentado",
+      "project": "Bronze → Silver com limpeza e tipagem",
+      "links": [
+        {"title": "Spark SQL – Performance Tuning", "url": "https://spark.apache.org/docs/latest/sql-performance-tuning.html"}
+      ]
+    },
+    {
+      "day": 12, "phase": 2, "title": "Diagnóstico no Spark",
+      "study": ["Broadcast join, shuffle e skew", "repartition, coalesce, cache e persist", "Spark UI: stages lentos, spill e skew", "Sizing e custo"],
+      "evidence": "Gargalo identificado e corrigido, com antes/depois",
+      "project": "Rodar o job, abrir a Spark UI e registrar o maior gargalo",
+      "links": [
+        {"title": "Spark Web UI", "url": "https://spark.apache.org/docs/latest/web-ui.html"},
+        {"title": "Spark SQL – Performance Tuning", "url": "https://spark.apache.org/docs/latest/sql-performance-tuning.html"},
+        {"title": "FinOps Framework", "url": "https://www.finops.org/framework/"}
+      ]
+    },
+    {
+      "day": 13, "phase": 2, "title": "Dados no Azure",
+      "study": ["IaaS, PaaS, SaaS e responsabilidade compartilhada", "Data Lake Storage Gen2", "Entra ID, Managed Identity e Key Vault", "Databricks e Data Factory", "Event Hubs e Functions", "Monitor e Purview"],
+      "evidence": "Mapa dos serviços Azure por função",
+      "project": "Desenho: onde cada parte do projeto rodaria no Azure",
+      "links": [
+        {"title": "Introdução à engenharia de dados no Azure", "url": "https://learn.microsoft.com/pt-br/training/modules/introduction-to-data-engineering-azure/"},
+        {"title": "Azure Data Lake Storage Gen2", "url": "https://learn.microsoft.com/pt-br/azure/storage/blobs/data-lake-storage-introduction"},
+        {"title": "Managed identities", "url": "https://learn.microsoft.com/pt-br/entra/identity/managed-identities-azure-resources/overview"},
+        {"title": "Azure Data Factory", "url": "https://learn.microsoft.com/pt-br/azure/data-factory/"},
+        {"title": "Azure Event Hubs", "url": "https://learn.microsoft.com/pt-br/azure/event-hubs/"},
+        {"title": "Azure Monitor", "url": "https://learn.microsoft.com/pt-br/azure/azure-monitor/"}
+      ]
+    },
+    {"day": 14, "phase": 2, "rest": true, "title": "Descanso", "study": [], "evidence": null, "project": null, "links": []},
+    {
+      "day": 15, "phase": 3, "title": "Dados na AWS e comparação",
+      "study": ["S3, IAM, Secrets Manager e KMS", "Glue, EMR e Lambda", "Kinesis/MSK, CloudWatch, Lake Formation e Athena", "Azure x AWS por capacidade", "Arquitetura híbrida e restrições corporativas"],
+      "evidence": "Tabela de equivalência Azure x AWS",
+      "project": "ADR: por que esta nuvem",
+      "links": [
+        {"title": "AWS Skill Builder", "url": "https://skillbuilder.aws/"},
+        {"title": "AWS Well-Architected Framework", "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html"}
+      ]
+    },
+    {
+      "day": 16, "phase": 3, "title": "Lakehouse na prática",
+      "study": ["Convergência entre lake e warehouse", "Delta: ACID, schema enforcement e time travel", "Responsabilidade de cada camada", "Unity Catalog: catálogos, schemas e permissões"],
+      "evidence": "Tabelas registradas no catálogo com permissões",
+      "project": "Silver → Gold com tabelas registradas no Unity Catalog",
+      "links": [
+        {"title": "Unity Catalog", "url": "https://learn.microsoft.com/pt-br/azure/databricks/data-governance/unity-catalog/"},
+        {"title": "Delta Lake – documentação", "url": "https://docs.delta.io/latest/index.html"}
+      ]
+    },
+    {
+      "day": 17, "phase": 3, "title": "Carga incremental",
+      "study": ["MERGE, CDC e Change Data Feed", "Auto Loader", "Lakeflow e Jobs: dependências, retries e parâmetros"],
+      "evidence": "Carga incremental reexecutável sem duplicar dados",
+      "project": "Carga incremental com MERGE e job agendado",
+      "links": [
+        {"title": "Engenharia de dados com Azure Databricks", "url": "https://learn.microsoft.com/pt-br/azure/databricks/data-engineering/"}
+      ]
+    },
+    {
+      "day": 18, "phase": 3, "title": "Lakehouse para produção",
+      "study": ["Evolução de schema e contratos de dados", "Clustering, particionamento e otimização", "Serverless x dedicado", "Governança e observabilidade no Databricks"],
+      "evidence": "Benefício de uma otimização medido",
+      "project": "Medir antes/depois de OPTIMIZE ou clustering",
+      "links": [
+        {"title": "Engenharia de dados com Azure Databricks", "url": "https://learn.microsoft.com/pt-br/azure/databricks/data-engineering/"},
+        {"title": "FinOps Framework", "url": "https://www.finops.org/framework/"}
+      ]
+    },
+    {
+      "day": 19, "phase": 3, "title": "Mensageria com Kafka",
+      "study": ["Eventos x mensagens (fato x comando)", "Tópicos, partições, offsets e consumer groups", "At-most-once, at-least-once e exactly-once", "Idempotência, retries e DLQ"],
+      "evidence": "Explicar o custo operacional de cada semântica de entrega",
+      "project": "Produtor e consumidor Kafka local com eventos da fonte",
+      "links": [
+        {"title": "Apache Kafka – documentação", "url": "https://kafka.apache.org/documentation/"}
+      ]
+    },
+    {
+      "day": 20, "phase": 3, "title": "Streaming de ponta a ponta",
+      "study": ["Schema Registry e compatibilidade", "Event time, processing time, janelas e watermark", "CDC com Debezium", "Streaming para Lakehouse"],
+      "evidence": "Agregação por janela com watermark funcionando",
+      "project": "Structured Streaming lendo o tópico e gravando na Bronze com checkpoint",
+      "links": [
+        {"title": "Structured Streaming Programming Guide", "url": "https://spark.apache.org/docs/latest/streaming/index.html"},
+        {"title": "Debezium – documentação", "url": "https://debezium.io/documentation/"},
+        {"title": "Schema Registry", "url": "https://docs.confluent.io/platform/current/schema-registry/index.html"}
+      ]
+    },
+    {"day": 21, "phase": 3, "rest": true, "title": "Descanso", "study": [], "evidence": null, "project": null, "links": []},
+    {
+      "day": 22, "phase": 4, "title": "DataOps e IaC",
+      "study": ["Estratégia de branches e releases", "CI/CD com GitHub Actions ou Azure DevOps", "Imagens Docker seguras", "Terraform", "Ambientes de desenvolvimento, homologação e produção", "Parametrização e gestão de segredos"],
+      "evidence": "Um recurso provisionado com Terraform",
+      "project": "Configuração por ambiente e segredos fora do código",
+      "links": [
+        {"title": "Terraform – tutoriais", "url": "https://developer.hashicorp.com/terraform/tutorials"},
+        {"title": "Azure Key Vault", "url": "https://learn.microsoft.com/pt-br/azure/key-vault/general/overview"}
+      ]
+    },
+    {
+      "day": 23, "phase": 4, "title": "Entrega contínua de dados",
+      "study": ["Testes automatizados de dados", "Versionamento de schemas e migrações", "Deploy, rollback e GitOps", "Plataforma de entrega para dados"],
+      "evidence": "Rollback ensaiado",
+      "project": "Gate de CI que bloqueia o deploy se um teste de dados falhar",
+      "links": [
+        {"title": "pytest – documentação", "url": "https://docs.pytest.org/en/stable/"},
+        {"title": "OpenGitOps", "url": "https://opengitops.dev/"}
+      ]
+    },
+    {
+      "day": 24, "phase": 4, "title": "Segurança de dados",
+      "study": ["Menor privilégio, RBAC e ABAC", "Service principals e identidades gerenciadas", "Criptografia em trânsito e em repouso", "Isolamento de rede e private endpoints", "LGPD e classificação de dados", "Mascaramento, tokenização e pseudonimização"],
+      "evidence": "Matriz de permissões do projeto",
+      "project": "Permissões mínimas e uma coluna mascarada",
+      "links": [
+        {"title": "Azure Well-Architected – Security", "url": "https://learn.microsoft.com/azure/well-architected/security/"},
+        {"title": "LGPD – Lei 13.709/2018", "url": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm"}
+      ]
+    },
+    {
+      "day": 25, "phase": 4, "title": "Governança e qualidade",
+      "study": ["Catálogo, metadados, ownership e lineage", "Contratos de dados", "Dimensões de qualidade: completude, unicidade, validade, consistência e atualidade", "Expectations e quality gates", "Monitoramento de qualidade (anomalias e profiling)", "Governança federada"],
+      "evidence": "Regras de qualidade mensuráveis definidas",
+      "project": "Regras de qualidade com tabela de rejeitados",
+      "links": [
+        {"title": "Microsoft Purview", "url": "https://learn.microsoft.com/pt-br/purview/"},
+        {"title": "Databricks Data Quality Monitoring", "url": "https://learn.microsoft.com/pt-br/azure/databricks/data-quality-monitoring/"}
+      ]
+    },
+    {
+      "day": 26, "phase": 4, "title": "Observabilidade e SRE",
+      "study": ["Logs, métricas, traces e lineage", "Freshness, throughput, latência e taxa de falha", "SLA, SLO e SLI", "Retry, backpressure e recuperação", "Alertas e runbooks"],
+      "evidence": "Um SLO definido e um runbook escrito",
+      "project": "Tabela de métricas do pipeline (freshness e falhas) com alerta",
+      "links": [
+        {"title": "OpenTelemetry – documentação", "url": "https://opentelemetry.io/docs/"},
+        {"title": "Google SRE Books", "url": "https://sre.google/books/"}
+      ]
+    },
+    {
+      "day": 27, "phase": 4, "title": "FinOps e confiabilidade",
+      "study": ["CPU, memória, I/O, rede, shuffle e skew", "Custo por pipeline e por workload", "Autoscaling e sizing", "Serverless x dedicado", "Tiers de storage e retenção", "Operação orientada a confiabilidade"],
+      "evidence": "Maiores direcionadores de custo identificados",
+      "project": "Tempo e custo por execução medidos e uma otimização justificada",
+      "links": [
+        {"title": "FinOps Framework", "url": "https://www.finops.org/framework/"},
+        {"title": "Spark SQL – Performance Tuning", "url": "https://spark.apache.org/docs/latest/sql-performance-tuning.html"}
+      ]
+    },
+    {"day": 28, "phase": 4, "rest": true, "title": "Descanso", "study": [], "evidence": null, "project": null, "links": []},
+    {
+      "day": 29, "phase": 5, "title": "Fechamento do projeto",
+      "study": ["README que permita reproduzir o ambiente", "Diagrama de arquitetura", "3 a 5 ADRs (nuvem, formato de tabela, batch x streaming, serverless x dedicado)", "Limitações e próximos passos"],
+      "evidence": "Repositório do projeto pronto para outra pessoa executar",
+      "project": "Documentação final e ADRs",
+      "links": []
+    },
+    {
+      "day": 30, "phase": 5, "title": "Apresentação técnica",
+      "study": ["Ensaiar 15 minutos cobrindo: funcionamento de ponta a ponta, coerência arquitetural, alternativas comparadas, segurança, qualidade, observabilidade, custo, limitações"],
+      "evidence": "Apresentação gravada e revisada",
+      "project": "Defesa técnica ensaiada",
+      "links": []
+    }
+  ]
+}
