@@ -1,0 +1,30 @@
+name: Criar issues do plano
+
+on:
+  workflow_dispatch:
+
+permissions:
+  issues: write
+  actions: write
+
+jobs:
+  create:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Criar label, milestones e issues
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/create_issues.py
+
+      # Issues criadas pelo GITHUB_TOKEN não disparam outros workflows,
+      # então o painel é republicado explicitamente.
+      - name: Republicar o painel
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run pages.yml --repo "$GITHUB_REPOSITORY"

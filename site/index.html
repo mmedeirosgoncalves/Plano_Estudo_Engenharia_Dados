@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Plano de estudos – Engenharia de Dados</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <p class="eyebrow">Painel de acompanhamento</p>
+      <h1 id="title">Plano de estudos</h1>
+      <div class="summary">
+        <div class="ring" id="ring" aria-hidden="true"><span id="pct">0%</span></div>
+        <div class="summary-text">
+          <p class="big"><strong id="done-count">0</strong> de <span id="total-count">0</span> dias de estudo concluídos</p>
+          <p class="muted" id="today-line"></p>
+          <label class="start">
+            Início do plano
+            <input type="date" id="start-input">
+          </label>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section aria-labelledby="phases-h">
+      <h2 id="phases-h">Fases</h2>
+      <div class="phases" id="phases"></div>
+    </section>
+
+    <section aria-labelledby="cal-h">
+      <div class="section-head">
+        <h2 id="cal-h">Calendário</h2>
+        <ul class="legend">
+          <li><i class="dot done"></i>Concluído</li>
+          <li><i class="dot doing"></i>Estudando</li>
+          <li><i class="dot todo"></i>A fazer</li>
+          <li><i class="dot rest"></i>Descanso</li>
+        </ul>
+      </div>
+      <ol class="calendar" id="calendar"></ol>
+    </section>
+
+    <section class="detail" id="detail" aria-live="polite"></section>
+  </main>
+
+  <footer class="wrap muted" id="footer"></footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
